@@ -1,0 +1,7 @@
+.item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.info {
+  margin-right: 7px;
+}
