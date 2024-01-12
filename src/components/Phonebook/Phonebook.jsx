@@ -12,23 +12,19 @@ class Phonebook extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    name: '',
-    number: '',
     filter: '',
   };
 
   isDublicate({ name, number }) {
     const { contacts } = this.state;
     const normalizedName = name.toLowerCase();
-    const normalizedNumber = number.toLowerCase();
+   
 
     const dublicate = contacts.find(item => {
       const normalizedCurrentName = item.name.toLowerCase();
-      const normalizedCurrentNumber = item.number.toLowerCase();
 
       return (
-        normalizedCurrentName === normalizedName &&
-        normalizedCurrentNumber === normalizedNumber
+        normalizedCurrentName === normalizedName 
       );
     });
     return Boolean(dublicate);
@@ -69,17 +65,14 @@ class Phonebook extends Component {
   getFlteredContacts() {
       const { filter, contacts } = this.state;
       
-      if (!filter) {
-          return contacts;
-      }
+    
     const normalizedFilter = filter.toLocaleLowerCase();
 
     const filteredContacts = contacts.filter(({ name, number }) => {
       const normalizedName = name.toLocaleLowerCase();
-      const normalizedNumber = number.toLocaleLowerCase();
+      
 
       return (
-        normalizedNumber.includes(normalizedFilter) ||
         normalizedName.includes(normalizedFilter)
       );
     });
